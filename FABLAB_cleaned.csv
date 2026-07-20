@@ -1,0 +1,21 @@
+#,Name,Model/ Part Number,Quantity,Available Accessories,General Features,Testing Main Items,Expect Testing Frequency per Year,Image_File
+1,Pick & place ,Fritsch 2021,1,False,PCB components placement,Full operation ,1,extracted_images/01.png
+2,Reflow Oven (mini),MRO250 (Fritsch),1,False,PCB components mounting (Oven),Full operation ,1,extracted_images/02.png
+3,Weller soldering station ,WXD2,1,False,PCB components Soldering,Full operation ,1,extracted_images/03.png
+4,Weller soldering station ,WT2M,1,False,PCB components Soldering,Full operation ,1,extracted_images/04.png
+5,S5 3D printer,Ulti maker 5S MSEU,1,False,3D print,Full operation ,1,extracted_images/05.png
+6,S5 3D printer,Ulti maker 5SR2 EU,1,False,3D print,Full operation ,1,extracted_images/06.png
+7,2 series mixed signal oscilloscope,MS024 Tektronix,1,False,measuring the signal,Full operation ,1,extracted_images/07.png
+8,programmable DC power supply,DP832A  Rigol,2,False,testing,Full operation ,1,extracted_images/08.png
+9,Function Generator ,Tektronix  AFG1022,2,False,Testing,Full operation ,1,extracted_images/09.png
+10,Weller Hot air station,WTHA1,2,False,PCB components soldering,Full operation ,1,extracted_images/10.png
+11,Mixed signal Oscilloscope ,TEKTRONIX  MS02004B,2,False,measuring the signal,Full operation ,1,extracted_images/11.png
+12,Makita scroll saw,SJ401,1,False,Cutting,Full operation ,1,extracted_images/12.png
+13,Makita bench grinder ,GB801,1,False,Grinding,Full operation ,1,extracted_images/13.png
+14,Nova Viking drill press,DVR,1,False,Drilling,Full operation ,1,extracted_images/14.png
+15,PVR Removal station ,Ulti maker apparatus,1,False,3D print PVA remove ,Full operation ,1,extracted_images/15.png
+16,EZ-label printer,CASIO KL-G@2,1,False,Label print ,Full operation ,1,extracted_images/16.png
+17,Manual stencil printer,Fritsch print ALL005 (2021),1,False,Solder pasting ,Full operation ,1,extracted_images/17.png
+18,Shining 3D scanner ,Ein scan -SP,1,False,3D  QC,Full operation ,1,extracted_images/18.png
+19,Vinyl cutter ,TITAN3,1,False,Printing,Full operation ,1,extracted_images/19.png
+20,Ersa Easy arm2,Easy arm 2,1,False,Solder fume extraction,Full operation ,1,extracted_images/20.png
