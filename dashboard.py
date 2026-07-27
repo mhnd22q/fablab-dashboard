@@ -13,13 +13,6 @@ st.markdown(
     <style>
     .stApp {{ background-color: #FFFFFF; }}
     .block-container {{ padding-top: 2rem; max-width: 1100px; }}
-    .machine-card {{
-        background-color: #FFFFFF;
-        border-radius: 10px;
-        padding: 28px 32px;
-        border: 1px solid #E3E7EC;
-        box-shadow: 0 2px 10px rgba(27,58,99,0.05);
-    }}
     .field-label {{
         color: {NAVY};
         font-weight: 600;
@@ -48,8 +41,7 @@ with logo_l:
         st.image("assets/sec_logo.png", width=110)
 with title_c:
     st.markdown(
-        f"<h1 style='text-align:center; color:{NAVY}; margin-bottom:0; font-weight:700; letter-spacing:0.01em;'>FABLAB Machinery Dashboard</h1>"
-        f"<p style='text-align:center; color:#666; margin-top:6px; font-size:14px;'>Innovation Division — Equipment &amp; Documentation Hub</p>",
+        f"<h1 style='text-align:center; color:{NAVY}; margin-bottom:0; font-weight:700; letter-spacing:0.01em;'>FABLAB Machinery Dashboard</h1>",
         unsafe_allow_html=True,
     )
 with logo_r:
@@ -62,8 +54,8 @@ st.markdown(f"<hr style='margin-top:1.2rem; margin-bottom:2rem; border-top:1px s
 selected_name = st.selectbox("Select a machine:", df["Name"])
 machine = df[df["Name"] == selected_name].iloc[0]
 
-st.markdown(f"<div class='machine-card'>", unsafe_allow_html=True)
-col1, col2 = st.columns([1, 2])
+card = st.container(border=True)
+col1, col2 = card.columns([1, 2])
 
 with col1:
     image_path = str(machine["Image_File"])
@@ -91,8 +83,6 @@ with col2:
         field("General Features", machine["General Features"])
         field("Testing Main Items", machine["Testing Main Items"])
         field("Expected Testing Frequency / Year", machine["Expect Testing Frequency per Year"])
-
-st.markdown("</div>", unsafe_allow_html=True)
 
 st.write("")
 
@@ -133,6 +123,3 @@ else:
         "No PDF manual uploaded yet for this machine. Add the file under manuals/ "
         "and set its path in the 'Manual_PDF' column of FABLAB_cleaned.csv."
     )
-
-st.divider()
-st.caption("FABLAB — Innovation Division · Saudi Electricity Company")
