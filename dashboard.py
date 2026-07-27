@@ -49,9 +49,11 @@ with logo_r:
 
 st.markdown(f"<hr style='margin-top:1.2rem; margin-bottom:2rem; border-top:1px solid #E3E7EC;'>", unsafe_allow_html=True)
 
+df["Display_Label"] = df["#"].astype(str) + " — " + df["Name"]
+
 # ---------- Machine selector ----------
-selected_name = st.selectbox("Select a machine:", df["Name"])
-machine = df[df["Name"] == selected_name].iloc[0]
+selected_label = st.selectbox("Select a machine:", df["Display_Label"])
+machine = df[df["Display_Label"] == selected_label].iloc[0]
 
 card = st.container(border=True)
 col1, col2 = card.columns([1, 2])
