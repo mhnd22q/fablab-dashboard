@@ -1,7 +1,6 @@
 import streamlit as st
 import pandas as pd
 import os
-import base64
 
 st.set_page_config(page_title="FABLAB Machinery Dashboard", page_icon="🛠️", layout="wide")
 
@@ -111,13 +110,6 @@ if pd.notna(manual_path) and str(manual_path).strip() and os.path.exists(str(man
         file_name=os.path.basename(manual_path),
         mime="application/pdf",
     )
-
-    base64_pdf = base64.b64encode(pdf_bytes).decode("utf-8")
-    pdf_display = (
-        f'<iframe src="data:application/pdf;base64,{base64_pdf}" '
-        f'width="100%" height="600" type="application/pdf"></iframe>'
-    )
-    st.markdown(pdf_display, unsafe_allow_html=True)
 else:
     st.info(
         "No PDF manual uploaded yet for this machine. Add the file under manuals/ "
