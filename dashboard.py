@@ -7,38 +7,33 @@ st.set_page_config(page_title="FABLAB Machinery Dashboard", page_icon="🛠️",
 
 NAVY = "#1B3A63"
 ORANGE = "#F26B22"
-LIGHT_BG = "#F4F6F9"
 
 st.markdown(
     f"""
     <style>
-    .stApp {{ background-color: {LIGHT_BG}; }}
-    div[data-testid="stMetric"] {{
-        background-color: white;
-        border: 1px solid #E3E7EC;
-        border-left: 4px solid {ORANGE};
-        border-radius: 10px;
-        padding: 14px 18px;
-    }}
+    .stApp {{ background-color: #FFFFFF; }}
+    .block-container {{ padding-top: 2rem; max-width: 1100px; }}
     .machine-card {{
-        background-color: white;
-        border-radius: 12px;
-        padding: 20px 24px;
+        background-color: #FFFFFF;
+        border-radius: 10px;
+        padding: 28px 32px;
         border: 1px solid #E3E7EC;
+        box-shadow: 0 2px 10px rgba(27,58,99,0.05);
     }}
     .field-label {{
         color: {NAVY};
         font-weight: 600;
-        font-size: 13px;
+        font-size: 12px;
         text-transform: uppercase;
-        letter-spacing: 0.03em;
+        letter-spacing: 0.04em;
         margin-bottom: 2px;
     }}
     .field-value {{
         font-size: 15px;
-        margin-bottom: 14px;
-        color: #222;
+        margin-bottom: 16px;
+        color: #1a1a1a;
     }}
+    hr {{ border-color: #E3E7EC; }}
     </style>
     """,
     unsafe_allow_html=True,
@@ -53,27 +48,15 @@ with logo_l:
         st.image("assets/sec_logo.png", width=110)
 with title_c:
     st.markdown(
-        f"<h1 style='text-align:center; color:{NAVY}; margin-bottom:0;'>FABLAB Machinery Dashboard</h1>"
-        f"<p style='text-align:center; color:#666; margin-top:4px;'>Innovation Division — Equipment & Documentation Hub</p>",
+        f"<h1 style='text-align:center; color:{NAVY}; margin-bottom:0; font-weight:700; letter-spacing:0.01em;'>FABLAB Machinery Dashboard</h1>"
+        f"<p style='text-align:center; color:#666; margin-top:6px; font-size:14px;'>Innovation Division — Equipment &amp; Documentation Hub</p>",
         unsafe_allow_html=True,
     )
 with logo_r:
     if os.path.exists("assets/innovation_energy_logo.png"):
         st.image("assets/innovation_energy_logo.png", width=140)
 
-st.divider()
-
-# ---------- KPI row ----------
-total_machines = len(df)
-with_manual = df["Manual_PDF"].apply(lambda p: isinstance(p, str) and p.strip() != "").sum()
-unique_models = df["Name"].nunique()
-
-k1, k2, k3 = st.columns(3)
-k1.metric("Total Machines", total_machines)
-k2.metric("Manuals Available", f"{with_manual} / {total_machines}")
-k3.metric("Distinct Machine Types", unique_models)
-
-st.write("")
+st.markdown(f"<hr style='margin-top:1.2rem; margin-bottom:2rem; border-top:1px solid #E3E7EC;'>", unsafe_allow_html=True)
 
 # ---------- Machine selector ----------
 selected_name = st.selectbox("Select a machine:", df["Name"])
