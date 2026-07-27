@@ -80,10 +80,17 @@ with col2:
         field("Model / Part Number", machine["Model/ Part Number"])
         field("Quantity", machine["Quantity"])
         field("Available Accessories", "Yes" if machine["Available Accessories"] else "No")
+        field("Overall Cost", machine.get("Overall_Cost", "") or "—")
+        field("Life Expectancy", machine.get("Life_Expectancy", "") or "—")
     with fcol2:
         field("General Features", machine["General Features"])
         field("Testing Main Items", machine["Testing Main Items"])
         field("Expected Testing Frequency / Year", machine["Expect Testing Frequency per Year"])
+        field("PPE Required", machine.get("PPE", "") or "—")
+
+    website = machine.get("Manufacturer_Website", "")
+    if pd.notna(website) and str(website).strip():
+        st.markdown(f"🔗 [Manufacturer Website]({website})")
 
 st.write("")
 
