@@ -99,10 +99,9 @@ with st.expander("📘 User Manual (Summary)", expanded=False):
     )
 
 # ---------- Official PDF manual ----------
-st.subheader("📄 Official User Manual")
-
 manual_path = machine.get("Manual_PDF", "")
 if pd.notna(manual_path) and str(manual_path).strip() and os.path.exists(str(manual_path)):
+    st.subheader("📄 Official User Manual")
     with open(manual_path, "rb") as f:
         pdf_bytes = f.read()
 
@@ -111,9 +110,4 @@ if pd.notna(manual_path) and str(manual_path).strip() and os.path.exists(str(man
         data=pdf_bytes,
         file_name=os.path.basename(manual_path),
         mime="application/pdf",
-    )
-else:
-    st.info(
-        "No PDF manual uploaded yet for this machine. Add the file under manuals/ "
-        "and set its path in the 'Manual_PDF' column of FABLAB_cleaned.csv."
     )
